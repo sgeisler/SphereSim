@@ -1,0 +1,14 @@
+<physics>
+	<properties>
+		<hasGrav>false</hasGrav>
+		<hasFrict>false</hasFrict>
+		<grav>25</grav>
+		<frict>25</frict>
+	</properties>
+	<ball>
+		<radius>100.0</radius>
+		<color r="50" g="100" b="255"></color>
+		<position x="1.5" y="2.3"></position>
+		<speed x="1.5" y="2.3"></speed>
+	</ball>
+</physics>
