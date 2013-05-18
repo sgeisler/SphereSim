@@ -169,26 +169,26 @@ public class Physics {
         //gegen glitch bug -> not 100% precise
         while (b1.intersects(b2)) {
             if (b1.getPosition().getX() - b2.getPosition().getX() < 0.0) {
-                b1.setPosition(new Coordinate(b1.getPosition().getX() - 0.001,
+                b1.setPosition(new Coordinate(b1.getPosition().getX() - 0.0001,
                         b1.getPosition().getY()));
-                b2.setPosition(new Coordinate(b2.getPosition().getX() + 0.001,
+                b2.setPosition(new Coordinate(b2.getPosition().getX() + 0.0001,
                         b2.getPosition().getY()));
             } else {
-                b1.setPosition(new Coordinate(b1.getPosition().getX() + 0.001,
+                b1.setPosition(new Coordinate(b1.getPosition().getX() + 0.0001,
                         b1.getPosition().getY()));
-                b2.setPosition(new Coordinate(b2.getPosition().getX() - 0.001,
+                b2.setPosition(new Coordinate(b2.getPosition().getX() - 0.0001,
                         b2.getPosition().getY()));
             }
             if (b1.getPosition().getY() - b2.getPosition().getY() < 0.0) {
                 b1.setPosition(new Coordinate(b1.getPosition().getX(),
-                        b1.getPosition().getY() - 0.001));
+                        b1.getPosition().getY() - 0.0001));
                 b2.setPosition(new Coordinate(b2.getPosition().getX(),
-                        b2.getPosition().getY() + 0.001));
+                        b2.getPosition().getY() + 0.0001));
             } else {
                 b1.setPosition(new Coordinate(b1.getPosition().getX(),
-                        b1.getPosition().getY() + 0.001));
+                        b1.getPosition().getY() + 0.0001));
                 b2.setPosition(new Coordinate(b2.getPosition().getX(),
-                        b2.getPosition().getY() - 0.001));
+                        b2.getPosition().getY() - 0.0001));
             }
 
         }
