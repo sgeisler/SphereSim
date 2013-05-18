@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -30,6 +31,13 @@ public class Circles extends JPanel {
         mainWindow.setResizable(false);
         mainWindow.setLayout(new BorderLayout());
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        try {
+            mainWindow.setIconImage(ImageIO.read(Circles.class.getResource("../res/appFull.jpg")));
+        } catch (Exception ex) {
+            Logger.getLogger(Circles.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
         /*
          * Physik-Engine initialisieren
