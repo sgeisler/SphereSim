@@ -1,0 +1,22 @@
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>L:\MyData\programming\java\javaproject\dist\Circles.jar</jar>
+  <outfile>L:\MyData\programming\java\javaproject\dist\SphereSim.exe</outfile>
+  <errTitle>Fehler!</errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <customProcName>false</customProcName>
+  <stayAlive>false</stayAlive>
+  <manifest>L:\MyData\programming\java\javaproject\manifest.mf</manifest>
+  <icon>L:\MyData\programming\java\javaproject\app.ico</icon>
+  <jre>
+    <path></path>
+    <minVersion>0.0.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+  </jre>
+</launch4jConfig>
