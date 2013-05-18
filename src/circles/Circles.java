@@ -33,7 +33,7 @@ public class Circles extends JPanel {
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         try {
-            mainWindow.setIconImage(ImageIO.read(Circles.class.getResource("../res/appFull.jpg")));
+            mainWindow.setIconImage(ImageIO.read(Circles.class.getResource("appFull.jpg")));
         } catch (Exception ex) {
             Logger.getLogger(Circles.class.getName()).log(Level.SEVERE, null, ex);
         }
