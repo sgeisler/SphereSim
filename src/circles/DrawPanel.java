@@ -3,12 +3,15 @@ package circles;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
+import java.awt.geom.AffineTransform;
 import java.util.Stack;
 import javax.swing.JPanel;
 
@@ -50,7 +53,7 @@ public class DrawPanel extends JPanel {
         frames = 1;
         history = true;
         mousePressed = false;
-        directionArrow = true;
+        directionArrow = false;
         secondMouseCoordinate = new Coordinate();
 
         
@@ -206,10 +209,11 @@ public class DrawPanel extends JPanel {
            if(directionArrow == true)
            {
                dbGraphics.setColor(baelle.elementAt(i).getColor());
-               g.drawLine( baelle.elementAt(i).getPosition().getX().intValue(),
+               drawArrow( (Graphics2D) dbGraphics, 
+                           baelle.elementAt(i).getPosition().getX().intValue(),
                            baelle.elementAt(i).getPosition().getY().intValue(),
-                           baelle.elementAt(i).getPosition().getX().intValue() + (baelle.elementAt(i).getSpeed().getX().intValue() * 50),
-                           baelle.elementAt(i).getPosition().getY().intValue() + (baelle.elementAt(i).getSpeed().getY().intValue() * 50));
+                           baelle.elementAt(i).getPosition().getX() + (baelle.elementAt(i).getSpeed().getX() * 50),
+                           baelle.elementAt(i).getPosition().getY() + (baelle.elementAt(i).getSpeed().getY() * 50));
 
            }
         }
@@ -315,4 +319,40 @@ public class DrawPanel extends JPanel {
         this.history = history;
     }
     
+    
+    /*
+     * Source: http://stackoverflow.com/questions/4112701/drawing-a-line-with-arrow-in-java
+     * Date: 17. 05. 2013
+     * Time: 21:37 (GMT+2)
+     */
+     void drawArrow(Graphics g1, int x1, int y1, double x2, double y2) {
+            int ARR_SIZE = 4;
+
+            Graphics2D g = (Graphics2D) g1.create();
+            double dx = x2 - x1, dy = y2 - y1;
+            double angle = Math.atan2(dy, dx);
+            int len = (int) Math.sqrt(dx*dx + dy*dy);
+            AffineTransform at = AffineTransform.getTranslateInstance(x1, y1);
+            at.concatenate(AffineTransform.getRotateInstance(angle));
+            g.transform(at);
+
+            // Draw horizontal arrow starting in (0, 0)
+            g.drawLine(0, 0, len, 0);
+            g.fillPolygon(new int[] {len, len-ARR_SIZE, len-ARR_SIZE, len},
+                          new int[] {0, -ARR_SIZE, ARR_SIZE, 0}, 4);
+    }
+
+     /*
+      * Richtungspfeil anzeigen oder nicht
+      */
+    public boolean getDirectionArrow() {
+        return directionArrow;
+    }
+
+    public void setDirectionArrow(boolean directionArrow) {
+        this.directionArrow = directionArrow;
+    }
+     
+     
+
 }

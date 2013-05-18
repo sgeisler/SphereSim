@@ -43,12 +43,13 @@ public class Circles extends JPanel {
          * Initialisierung der GUI-Komponenten
          */
         JPanel menue = new JPanel();
-        menue.setLayout(new GridLayout(8, 0));
+        menue.setLayout(new GridLayout(9, 0));
         final JFileChooser fileChooser = new JFileChooser();
 
         final JButton buttonPause = new JButton("Pause");
         final JButton buttonPickColor = new JButton("Ballfarbe einstellen");
         final JButton buttonHistory = new JButton("Pfad ausblenden");
+        final JButton buttonArrow = new JButton("Richtungspfeil anzeigen");
         JButton buttonClear = new JButton("Bälle löschen");
 
         JPanel panelGrav = new JPanel();
@@ -140,6 +141,19 @@ public class Circles extends JPanel {
                 } else {
                     d.setHistory(false);
                     buttonHistory.setText("Pfad anzeigen");
+                }
+            }
+        });
+        
+        buttonArrow.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (d.getDirectionArrow() == false) {
+                    d.setDirectionArrow(true);
+                    buttonArrow.setText("Richtungspfeil ausblenden");
+                } else {
+                    d.setDirectionArrow(false);
+                    buttonArrow.setText("Richtungspfeil anzeigen");
                 }
             }
         });
@@ -287,6 +301,7 @@ public class Circles extends JPanel {
         menue.add(buttonPause);
         menue.add(panelColor);
         menue.add(buttonHistory);
+        menue.add(buttonArrow);
         menue.add(buttonClear);
         menue.add(panelGrav);
         menue.add(panelFrict);
