@@ -57,8 +57,8 @@ public class Circles extends JPanel {
         final JSlider sliderGrav = new JSlider();
         final JSlider sliderFrict = new JSlider();
 
-        final JButton buttonGrav = new JButton("Gravitation an");
-        final JButton buttonFrict = new JButton("Reibung an");
+        final JButton buttonGrav = new JButton("Gravitation aktivieren");
+        final JButton buttonFrict = new JButton("Reibung aktivieren");
 
         JButton buttonSave = new JButton("Speichern");
         JButton buttonLoad = new JButton("Laden");
@@ -157,11 +157,11 @@ public class Circles extends JPanel {
                 if (phys.getGravity() == false) {
                     phys.setGravity(true);
                     sliderGrav.setEnabled(true);
-                    buttonGrav.setText("Gravitation aus");
+                    buttonGrav.setText("Gravitation deaktivieren");
                 } else {
                     phys.setGravity(false);
                     sliderGrav.setEnabled(false);
-                    buttonGrav.setText("Gravitation an");
+                    buttonGrav.setText("Gravitation aktivieren");
                 }
             }
         });
@@ -172,11 +172,11 @@ public class Circles extends JPanel {
                 if (phys.getFriction() == false) {
                     phys.setFriction(true);
                     sliderFrict.setEnabled(true);
-                    buttonFrict.setText("Reibung aus");
+                    buttonFrict.setText("Reibung deaktivieren");
                 } else {
                     phys.setFriction(false);
                     sliderFrict.setEnabled(false);
-                    buttonFrict.setText("Reibung an");
+                    buttonFrict.setText("Reibung aktivieren");
                 }
             }
         });
@@ -206,18 +206,18 @@ public class Circles extends JPanel {
                         d.setPaused(true);
 
                         if (phys.getGravity() == true) {
-                            buttonGrav.setText("Gravitation aus");
+                            buttonGrav.setText("Gravitation deaktivieren");
                             sliderGrav.setEnabled(true);
                         } else {
-                            buttonGrav.setText("Gravitation an");
+                            buttonGrav.setText("Gravitation aktivieren");
                             sliderGrav.setEnabled(false);
                         }
 
                         if (phys.getFriction() == true) {
-                            buttonFrict.setText("Reibung aus");
+                            buttonFrict.setText("Reibung deaktivieren");
                             sliderFrict.setEnabled(true);
                         } else {
-                            buttonFrict.setText("Reibung an");
+                            buttonFrict.setText("Reibung aktivieren");
                             sliderFrict.setEnabled(false);
                         }
 
