@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.geom.AffineTransform;
@@ -78,7 +79,7 @@ public class DrawPanel extends JPanel {
             public void mouseReleased(MouseEvent me) {
                 mousePressed = false;
 
-                Coordinate speed = new Coordinate();
+               /* Coordinate speed = new Coordinate();
                 speed.setX(
                         (newBall.getPosition().getX() - secondMouseCoordinate.getX()) / -50);
                 speed.setY(
@@ -87,7 +88,7 @@ public class DrawPanel extends JPanel {
                 phys.addBall(
                         new Ball(newBall.getRadius(), newBall.getPosition(),
                         speed, newBall.getFriction(), newBall.getBounce(),
-                        actualColor));//new Color(actualColor.getRed(), actualColor.getGreen(), actualColor.getBlue())));
+                        actualColor));//new Color(actualColor.getRed(), actualColor.getGreen(), actualColor.getBlue())));*/
             }
 
             @Override
@@ -98,6 +99,19 @@ public class DrawPanel extends JPanel {
             @Override
             public void mouseExited(MouseEvent me) {
                 //throw new UnsupportedOperationException("Not supported yet.");
+            }
+        });
+        
+        this.addMouseMotionListener(new MouseMotionListener() {
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                phys.addBall(new Ball(newBall.getRadius(), newBall.getPosition(), new Coordinate(0.0, 0.0), newBall.getFriction(), newBall.getBounce(), actualColor));
+            }
+
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                                
             }
         });
 
@@ -237,12 +251,7 @@ public class DrawPanel extends JPanel {
 
         dbGraphics.drawOval(x, y, d, d);
 
-        if (mousePressed == true) {
-            dbGraphics.drawLine(newBall.getPosition().getX().intValue(),
-                    newBall.getPosition().getY().intValue(),
-                    secondMouseCoordinate.getX().intValue(),
-                    secondMouseCoordinate.getY().intValue());
-        }
+       
 
         dbGraphics.setColor(Color.black);
 
@@ -250,16 +259,12 @@ public class DrawPanel extends JPanel {
                 phys.getSize().getY().intValue());
 
         Point mousePos = getMousePosition();
-        if (mousePos != null && mousePressed == false) {
+        if (mousePos != null) {
             newBall.setPosition(new Coordinate(new Double(mousePos.x),
                     new Double(mousePos.y)));
 
         }
-        if (mousePos != null && mousePressed == true) {
-            secondMouseCoordinate = new Coordinate(new Double(mousePos.x),
-                    new Double(mousePos.y));
-
-        }
+       
         
         
         /*
