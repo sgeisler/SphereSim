@@ -26,6 +26,7 @@ public class Circles extends JPanel {
         /*
          * Fenster initialisieren
          */
+        
         final JFrame mainWindow = new JFrame("SphereSim 1.0");
         mainWindow.setSize(860, 509);
         mainWindow.setResizable(false);
